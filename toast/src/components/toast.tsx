@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+
+interface newToastProps {
+  id: number;
+  message: string;
+  type: string;
+}
+[];
 
 export function ToastContainer() {
   const [toast, setToast] = useState([]);
+  const timerRef = useRef<any>({});
 
   const handleClose = (id: number) => {
+    clearTimeout(timerRef.current[id]);
     setToast((prevState) => {
       const filteredArr = prevState.filter((toast) => {
         return toast.id !== id;
@@ -15,11 +24,13 @@ export function ToastContainer() {
 
   const handleAddToast = (message: string, type: string) => {
     const id = new Date().getTime();
-    const newToast = [...toast, { id, message, type }];
+    const newToast: newToastProps[] | never[] = [
+      ...toast,
+      { id, message, type },
+    ];
 
     setToast(newToast);
-
-    setTimeout(() => handleClose(id), 5000);
+    timerRef.current[id] = setTimeout(() => handleClose(id), 5000);
   };
 
   return (
