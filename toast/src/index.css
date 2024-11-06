@@ -1,0 +1,81 @@
+* {
+  padding: 0%;
+  margin: 0;
+
+  box-sizing: border-box;
+  color: black;
+  margin: 20px;
+}
+
+.toast-container {
+  position: fixed;
+}
+
+.toast {
+  padding: 20px;
+  width: 20rem;
+  border-radius: 12px;
+  position: relative;
+  top: 0;
+  right: 0;
+  font-size: 32px;
+  animation: slide 1s 1;
+
+  span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}
+
+.success {
+  background-color: green;
+  color: white;
+}
+
+.warning {
+  background-color: yellow;
+  color: black;
+}
+
+.error {
+  background-color: red;
+  color: white;
+}
+
+.info {
+  background-color: aqua;
+  color: black;
+}
+
+.toast-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  gap: 20px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: grey;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
