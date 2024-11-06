@@ -3,15 +3,23 @@ import { useState } from "react";
 export function ToastContainer() {
   const [toast, setToast] = useState([]);
 
+  const handleClose = (id: number) => {
+    setToast((prevState) => {
+      const filteredArr = prevState.filter((toast) => {
+        return toast.id !== id;
+      });
+
+      return filteredArr;
+    });
+  };
+
   const handleAddToast = (message: string, type: string) => {
     const id = new Date().getTime();
     const newToast = [...toast, { id, message, type }];
 
     setToast(newToast);
-  };
 
-  const handleClose = () => {
-    setTimeout(() => handleAddToast, 5000);
+    setTimeout(() => handleClose(id), 5000);
   };
 
   return (
@@ -20,7 +28,7 @@ export function ToastContainer() {
         {toast.map(({ message, type, id }) => {
           return (
             <div key={id} className={`toast ${type}`}>
-              {message} <span onClick={handleClose}>X</span>
+              {message} <span onClick={() => handleClose(id)}>X</span>
             </div>
           );
         })}
