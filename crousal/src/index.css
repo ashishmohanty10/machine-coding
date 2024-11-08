@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  width: 100%;
+}
+
+.crousal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+  transition: all ease-in 0.3s;
+}
+
+.crousal-images {
+  width: 400px;
+  height: 400px;
+}
