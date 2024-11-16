@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [sentence, setSentence] = useState("");
+  const [style, setStyle] = useState("");
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="flex flex-col space-y-5 items-center justify-center h-screen w-full">
+      <textarea
+        name="text"
+        id=""
+        className="border border-slate-500 p-5 text-xl w-1/2 h-32"
+        placeholder="write here to format"
+        onChange={(e) => setSentence(e.target.value)}
+      ></textarea>
+
+      <div className="flex gap-2">
+        <Button text={"UPPERCASE"} onclick={() => setStyle("uppercase")} />
+        <Button text={"lowercase"} onclick={() => setStyle("lowercase")} />
+
+        <Button text={"PascalCase"} onclick={() => setStyle("capitalize")} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+
+      <div>
+        <p className="text-lg font-medium">Transformed string</p>
+        <p className={`${style} text-base font-normal  text-center`}>
+          {sentence}
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
+
+const Button = ({ text, onclick }: { text: string; onclick: () => void }) => {
+  return (
+    <button className="px-4 py-2 bg-slate-300 rounded-md" onClick={onclick}>
+      {text}
+    </button>
+  );
+};
