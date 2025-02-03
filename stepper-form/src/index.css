@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs-container {
+  display: flex;
+  align-items: center;
+}
+
+.tabs {
+  padding: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.tab-content {
+  width: 500px;
+  height: 200px;
+  border: 1px solid black;
+}
