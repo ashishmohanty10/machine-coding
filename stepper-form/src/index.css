@@ -27,3 +27,8 @@ body {
   height: 200px;
   border: 1px solid black;
 }
+
+.error {
+  display: block;
+  padding-left: 45px;
+}
