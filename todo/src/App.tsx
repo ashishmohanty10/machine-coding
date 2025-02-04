@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { FormEvent, useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+type Todo = {
+  text: string;
+  completed: boolean;
+};
+
+export default function App() {
+  const [todo, setTodo] = useState<Todo[]>([]);
+  const [text, setText] = useState("");
+
+  const addTodo = (e: FormEvent) => {
+    e.preventDefault();
+    if (text.trim().length === 0) return;
+
+    setTodo([...todo, { text, completed: false }]);
+    setText("");
+  };
+
+  const handleDelete = (id: number) => {
+    setTodo(todo.filter((_, index) => index !== id));
+  };
+
+  const toggleComplete = (id: number) => {
+    setTodo(
+      todo.map((item, index) =>
+        index === id ? { ...item, completed: !item.completed } : item
+      )
+    );
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <h1>TODO</h1>
 
-export default App
+      <form onSubmit={addTodo}>
+        <input
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <button type="submit">ADD TODO</button>
+      </form>
+
+      <ul>
+        {todo.map((item, idx) => (
+          <div key={idx} className="single-todo">
+            <li
+              style={{
+                textDecoration: item.completed ? "line-through" : "none",
+              }}
+            >
+              {item.text}
+            </li>
+            <button onClick={() => handleDelete(idx)}>Delete</button>
+            <button onClick={() => toggleComplete(idx)}>
+              {item.completed ? "Undo" : "Completed"}
+            </button>
+          </div>
+        ))}
+      </ul>
+    </div>
+  );
+}
