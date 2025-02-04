@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-container {
+  width: 100vw;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-number {
+  padding: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.pagination-number:hover {
+  background: #f0f0f0;
+}
+
+.pagination-number.active {
+  background: black;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.single-posts {
+  padding: 10px;
+  border: 1px solid black;
+  width: 400px;
+  height: 100px;
+}
