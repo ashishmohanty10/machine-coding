@@ -5,11 +5,10 @@ interface newToastProps {
   message: string;
   type: string;
 }
-[];
 
 export function ToastContainer() {
-  const [toast, setToast] = useState([]);
-  const timerRef = useRef<any>({});
+  const [toast, setToast] = useState<newToastProps[]>([]);
+  const timerRef = useRef<{ [key: number]: NodeJS.Timeout }>({});
 
   const handleClose = (id: number) => {
     clearTimeout(timerRef.current[id]);
@@ -24,10 +23,7 @@ export function ToastContainer() {
 
   const handleAddToast = (message: string, type: string) => {
     const id = new Date().getTime();
-    const newToast: newToastProps[] | never[] = [
-      ...toast,
-      { id, message, type },
-    ];
+    const newToast: newToastProps[] = [...toast, { id, message, type }];
 
     setToast(newToast);
     timerRef.current[id] = setTimeout(() => handleClose(id), 5000);
