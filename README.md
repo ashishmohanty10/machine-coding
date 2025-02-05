@@ -19,6 +19,7 @@ This repository contains solutions to various machine coding round questions com
 - [Toast Notifications](#toast-notifications)
 - [Todo Application](#todo-application)
 - [Traffic Lights](#traffic-lights)
+- [Guess the Number](#guess-the-number)
 
 ---
 
@@ -31,8 +32,8 @@ This repository contains solutions to various machine coding round questions com
 ### Carousel Component
 
 - **Description**: A carousel or slideshow component to display items interactively.
-- **Folder**: `carousel`
-- **Commit Message**: `feat: add carousel-component`
+- **Folder**: `crousal`
+- **Commit Message**: `feat: add crousal-component`
 
 ### File Tree Component
 
@@ -86,7 +87,7 @@ This repository contains solutions to various machine coding round questions com
 
 - **Description**: A utility component for transforming strings (v1 and optimized v2).
 - **Folder**: `string-transformer`
-- **Commit Message**: `feat: add string-transform comp v2 optimized`
+- **Commit Message**: `feat: add string-transform comp v2 optimised`
 
 ### Tabs Component
 
@@ -111,6 +112,12 @@ This repository contains solutions to various machine coding round questions com
 - **Description**: A traffic lights simulation component.
 - **Folder**: `traffic-lights`
 - **Commit Message**: `feat: traffic-lights comp`
+
+### Guess the Number
+
+- **Description**: A React-based game where users guess the number with feedback on each attempt.
+- **Folder**: `guess-the-number`
+- **Commit Message**: `feat: add guess-number`
 
 ---
 
