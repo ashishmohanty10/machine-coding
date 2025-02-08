@@ -119,6 +119,12 @@ This repository contains solutions to various machine coding round questions com
 - **Folder**: `guess-the-number`
 - **Commit Message**: `feat: add guess-number`
 
+### Search Bar
+
+- **Description**: A Search Bar component with API integration and caching.
+- **Folder**: `search`
+- **Commit Message**: `feat: add search component with API integration and caching`
+
 ---
 
 ## Getting Started
